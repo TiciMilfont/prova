@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?=$_SESSION ["atualizacao_staff"]?>
 </h3>
 
-<?php if (mensagem != " ") : ?>
+<?php if ($mensagem != " ") : ?>
     <p> <?= htmlspecialchars($mensagem) ?> </p>
 
     <?php endif ; ?>
@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <h2> Funcionários cadastrados: </h2>
 
-     <?php else: ?> 
+   
         <?php foreach ($funcionario as $indice => $funcionario) : ?>
             <div class = "staff-card">
                 <h3>
@@ -133,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <strong> Função: </strong>
                     <?= htmlspecialchars($funcionario ["nome"] ?? "não informado") ?>
                     <br>
-                    <!-- botão excluir VERIFICAR A EXCLUSÂO ESTA OK -->
+                    <!-- botão excluir VERIFICAR A EXCLUSÂO ESTA OK   -->
                      <form method = "GET">
                         <input type = "hidden" nome = "acao_excluir" value = "excluir">
                         <input type = "hidden" name ="indice" value = "<?= $indice ?> ">
@@ -147,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <?php endforeach ; ?>
-                <?php php endif; ?>
+                
 
                   <!-- pop-up excluir-->
 <?php if (isset ($_GET ["Funcionário excluido!"])) : ?>

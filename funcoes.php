@@ -10,7 +10,7 @@ function lerFuncionarios() {
 }
 
 function salvarFuncionarios($funcionarios) {
-    $arquivo = __DIR__ . "/robos.json";
+    $arquivo = __DIR__ . "/funcionarios.json";
     $json = json_encode ($funcionarios, JSON_PRETTY_PRINT);
 
     file_put_contents($arquivo, $json , LOCK_EX);
