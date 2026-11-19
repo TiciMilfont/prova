@@ -10,8 +10,8 @@ if (!isset ($session ["atualizacao_staff"])) {
 }
 
 // carregar atualizações
-require_onde __DIR__ . "/funcoes.php";
-require_onde __DIR__ . "/funcionarios.php";
+require_once __DIR__ . "/funcoes.php";
+require_once __DIR__ . "/funcionarios.php";
 $funcionarios = lerFuncionarios();
 $mensagem = " ";
 
@@ -41,9 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $mensagem = "erro: tipo de funcionário inválido.";
     }
+}
 
-    if (isset ())
- }
+    //  if (isset ())
+  // }
 
 
 
@@ -57,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mensagem = "Erro: funcionário não cadastrado!";
 }
 }
-}
+
 ?>
 
  //A exclusão deve exigir confirmação por formulário POST antes de alterar o banco de dados.
@@ -77,9 +78,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
 
 <h1> CENTRAL DE CADASTRO </h1>
-<h3 class = class = "Atualizações">
+<h3 class = class = "atualizacao_staff">
     Atualizações cadastrais desta sessão:
-    <?=$_SESSION ["Atualizações"]?>
+    <?=$_SESSION ["atualizacao_staff"]?>
 </h3>
 
 <?php if (mensagem != " ") : ?>
@@ -124,16 +125,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <h2> Funcionários cadastrados: </h2>
 
-    <?php else : ?>
+    <?php else: ?>
         <?php foreach ($funcionario as $indice => $funcionario) : ?>
             <div class = "staff-card">
                 <h3>
-                    <? = htmlspecialchars ($funcionario ["nome"] ?? " ")
+                    <?= htmlspecialchars ($funcionario ["nome"] ?? " ")
                     ?>
                 </h3>
                 <p>
                     <strong> Função: </strong>
-                    <? = htmlspecialchars($funcionario ["nome"] ?? "não informado") ?>
+                    <?= htmlspecialchars($funcionario ["nome"] ?? "não informado") ?>
                     <br>
                     <!-- botão excluir VERIFICAR A EXCLUSÂO ESTA OK -->
                      <form method = "GET">
@@ -142,20 +143,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                         <button type= "submit">
-                            <? = ($funcionario["ativo"] ) ?>
+                            <?= ($funcionario["ativo"] ) ?>
                        </button>
                      </form>
                 </p>
             </div>
 
             <?php endforeach ; ?>
-                <?php php endif ; ?>
+                <?php php endif; ?>
 
-                  <!-- pop-up cadastro-->
-<?
+                  <!-- pop-up excluir-->
+<?php if (isset ($_GET ["Funcionário excluido!"])) : ?>
+
+    <script>
+
+        window.history.replacestate({ }, " ", "index.php");
+        alert ("Funcionário excluido!");
+        </script>
+
+        <?php endif; ?>
+
 
 
     </body>
 
+    </html>
 
- ?>
+
