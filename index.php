@@ -38,9 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $mensagem = " Olá gerente" . $nome ;
         } elseif ($tipo_staff == "Supervisor") {
                 $mensagem = " Olá supervisor" . $nome ;
-    } else {
+    } 
+    
+    
+    else {
         $mensagem = "erro: tipo de funcionário inválido.";
     }
+
 }
 
 
@@ -88,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2> CADASTRAR NOVO FUNCIONÁRIO</h2>
 
     <form method = "POST">
-        <input type= " hidden" name = "nome" required>
+        <input type= " text" name = "nome" required>
         <br> <br>
 
         <label> Tipo de funcionário:: </label>
@@ -134,9 +138,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?= htmlspecialchars($funcionario ["nome"] ?? "não informado") ?>
                     <br>
                     <!-- botão excluir VERIFICAR A EXCLUSÂO ESTA OK   -->
-                     <form method = "GET">
+                     <form method = "POST">
                         <input type = "hidden" nome = "acao_excluir" value = "excluir">
                         <input type = "hidden" name ="indice" value = "<?= $indice ?> ">
+
+                        <a href = "index.php ? excluir = <?= $indice ?> ">
+                            excluir funcionario
+                        </a>
+
+
 
 
                         <button type= "submit">
