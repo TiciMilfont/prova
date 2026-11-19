@@ -43,9 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-    //  if (isset ())
-  // }
-
 
 
  // salvar no json, só sei nesse
@@ -125,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <h2> Funcionários cadastrados: </h2>
 
-    <?php else: ?>
+     <?php else: ?> 
         <?php foreach ($funcionario as $indice => $funcionario) : ?>
             <div class = "staff-card">
                 <h3>
