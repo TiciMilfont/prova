@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
- // salvar no json
+ // salvar no json, só sei nesse
 
  salvarFuncionarios($funcionarios);
  header ("Location: index.php? cadastrado =1");
