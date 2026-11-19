@@ -5,7 +5,9 @@ function lerFuncionarios() {
 
     if  (!file_exists($arquivo)){ return[ ];}
 
-    $dados = file_get_contents($dados , true) ?? [ ];
+    $dados = file_get_contents($arquivo) ;
+
+    return json_decode ($dados, true) ?? [ ];
 
 }
 
